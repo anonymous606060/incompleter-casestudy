@@ -1,0 +1,93 @@
+FIELD_SIZE_COMPAT_RE = r'(?<!%)%\((?P<field>autonumber|playlist_index)\)s'
+
+
+
+Failed:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'FIELD_SIZE_COMPAT_RE' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2589, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2398, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2397, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 586, in prepare_filename
+    mobj = re.search(FIELD_SIZE_COMPAT_RE, outtmpl)
+NameError: name 'FIELD_SIZE_COMPAT_RE' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:01<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- TypeError: first argument must be string or compiled pattern
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2249, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2078, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2077, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 505, in prepare_filename
+    mobj = re.search(FIELD_SIZE_COMPAT_RE, outtmpl)
+  File "/usr/lib/python3.10/re.py", line 200, in search
+    return _compile(pattern, flags).search(string)
+  File "/usr/lib/python3.10/re.py", line 302, in _compile
+    raise TypeError("first argument must be string or compiled pattern")
+TypeError: first argument must be string or compiled pattern
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:07<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [04:07<00:00, 247.38s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$
+
+Lexecutor:
+04/12/2024 07:45:42 PM 15243: Predicting for name FIELD_SIZE_COMPAT_RE: a
+Same assertion different content:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_3.py", line 5735, in <module>
+    _c_(21448, _a_(21447, _n_(21446, "temp", lambda: temp), "test_prepare_filename"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_3.py", line 5309, in test_prepare_filename
+    _c_(20890, _a_(20887, _n_(20886, "self", lambda: self), "assertEqual"), _c_(20889, _n_(20888, "fname", lambda: fname), 'Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Hello /home/anonymous/.pyenv/libexec:/home/anonymous/[1354 chars]/bin' != 'Hello $PATH'
+Diff is 1423 characters long. Set self.maxDiff to None to see it.
+04/12/2024 07:45:55 PM Covered iids: 320
+04/12/2024 07:45:55 PM Total uses: 14373
+04/12/2024 07:45:55 PM Guided uses : 1/14373

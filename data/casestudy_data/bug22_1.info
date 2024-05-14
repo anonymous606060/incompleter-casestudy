@@ -1,0 +1,189 @@
+    view_count = info_dict.get('view_count')
+
+
+Same assertion different content:
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'view_count' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2673, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2583, in test_match_filter
+    res = get_videos()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2581, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 695, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1260, in process_video_result
+    self.process_info(new_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2549, in process_info
+    super(YDL, self).process_info(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1320, in process_info
+    reason = self._match_entry(info_dict, incomplete=False)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2551, in _match_entry
+    res = super(FilterYDL, self)._match_entry(info_dict, incomplete)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 600, in _match_entry
+    if view_count is not None:
+NameError: name 'view_count' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:31<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- ValueError: Invalid filter part 'uploader = "è®æå¦å­å¹ç å¤ªå¦ ÑÐµÑÑ"'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2338, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2265, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2254, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 618, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1085, in process_video_result
+    self.process_info(new_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2240, in process_info
+    super(YDL, self).process_info(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1142, in process_info
+    reason = self._match_entry(info_dict, incomplete=False)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2243, in _match_entry
+    res = super(FilterYDL, self)._match_entry(info_dict, incomplete)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 544, in _match_entry
+    ret = match_filter(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2446, in _match_func
+    if match_str(filter_str, info_dict):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2440, in match_str
+    return all(
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2441, in <genexpr>
+    _match_one(filter_part, dct) for filter_part in filter_str.split('&'))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2434, in _match_one
+    raise ValueError('Invalid filter part %r' % filter_part)
+ValueError: Invalid filter part 'uploader = "è®æå¦å­å¹ç å¤ªå¦ ÑÐµÑÑ"'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:01<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [03:01<00:00, 181.40s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+Lexecutor:
+CHECK HERE
+04/12/2024 08:53:46 PM 1055: Predicting for name view_count: {'a': <lexecutor.ValueAbstraction.DummyObject object at 0x7f99744a7df0>}
+Worked
+
+04/12/2024 07:51:11 PM 42418: Predicting for name view_count: None
+Worked:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 5961, in <module>
+    _c_(7585, _a_(7584, _n_(7583, "temp", lambda: temp), "test_match_filter"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 5773, in test_match_filter
+    res = _c_(7355, _n_(7353, "get_videos", lambda: get_videos), _n_(7354, "f", lambda: f))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 5726, in get_videos
+    _c_(7337, _a_(7335, _n_(7334, "ydl", lambda: ydl), "process_ie_result"), _n_(7336, "v", lambda: v), download=True)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 1481, in process_ie_result
+    aux = _c_(1310, _a_(1307, _n_(1306, "self", lambda: self), "process_video_result"), _n_(1308, "ie_result", lambda: ie_result), download=_n_(1309, "download", lambda: download))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 2778, in process_video_result
+    _c_(3018, _a_(3016, _n_(3015, "self", lambda: self), "process_info"), _n_(3017, "new_info", lambda: new_info))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 5674, in process_info
+    _c_(7299, _a_(7297, _n_(7294, "super", lambda: super)(_n_(7295, "YDL", lambda: YDL), _n_(7296, "self", lambda: self)), "process_info"), _n_(7298, "info_dict", lambda: info_dict))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 2921, in process_info
+    reason = _c_(3199, _a_(3197, _n_(3196, "self", lambda: self), "_match_entry"), _n_(3198, "info_dict", lambda: info_dict), incomplete=False)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 5680, in _match_entry
+    res = _c_(7308, _a_(7305, _n_(7302, "super", lambda: super)(_n_(7303, "FilterYDL", lambda: FilterYDL), _n_(7304, "self", lambda: self)), "_match_entry"), _n_(7306, "info_dict", lambda: info_dict), _n_(7307, "incomplete", lambda: incomplete))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_1.py", line 1303, in _match_entry
+    ret = _c_(1111, _n_(1109, "match_filter", lambda: match_filter), _n_(1110, "info_dict", lambda: info_dict))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2446, in _match_func
+    if match_str(filter_str, info_dict):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2440, in match_str
+    return all(
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2441, in <genexpr>
+    _match_one(filter_part, dct) for filter_part in filter_str.split('&'))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/youtube_dl/utils.py", line 2434, in _match_one
+    raise ValueError('Invalid filter part %r' % filter_part)
+ValueError: Invalid filter part 'uploader = "變態妍字幕版 太妍 тест"'
+04/12/2024 08:53:47 PM Covered iids: 745
+04/12/2024 08:53:47 PM Total uses: 803
+04/12/2024 08:53:47 PM Guided uses : 1/803

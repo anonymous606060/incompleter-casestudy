@@ -1,0 +1,108 @@
+class <class_name>:
+    def __init__(self):
+        self.container = <container_value>
+        self.keys = list(self.container.keys())
+        self.iter_current = 0
+
+    def __refresh_keys(self):
+        self.keys = list(self.container.keys())
+        for key in self.keys:
+            if not isinstance(key, int):
+                return
+        sorted(self.keys)
+
+    def __str__(self):
+        self.__refresh_keys()
+        ret_str = ''
+        ret_str += '[ '
+        for idx, (key, val) in enumerate(self.container.items()):
+            ret_str += str(val)
+            if idx < len(self.keys) - 1:
+                ret_str += ', '
+        ret_str += ' ]'
+        return ret_str
+
+    def __getitem__(self, key):
+        self.__refresh_keys()
+        ret_val = None
+        if isinstance(key, slice):
+            list_to_return = []
+            start = key.start or 0
+            stop = key.stop or len(self.container)
+            step = key.step or 1
+            if start < 0:
+                if start * -1 > len(self.keys):
+                    diff = start * -1 - len(self.keys)
+                    if len(self.keys) > 0:
+                        for i in range(max(self.keys), max(self.keys) + diff + 1):
+                            self.container[i] = 0
+                    else:
+                        for i in range(0, diff + 1):
+                            self.container[i] = 0
+                self.__refresh_keys()
+                start = self.keys[start]
+            if stop < 0:
+                if stop * -1 > len(self.keys):
+                    diff = stop * -1 - len(self.keys)
+                    if len(self.keys) > 0:
+                        for i in range(max(self.keys), max(self.keys) + diff + 1):
+                            self.container[i] = 0
+                    else:
+                        for i in range(0, diff + 1):
+                            self.container[i] = 0
+                self.__refresh_keys()
+                stop = self.keys[stop]
+            for i in range(start, stop, step):
+                list_to_return.append(self.container[i])
+            ret_val = list_to_return
+        elif isinstance(key, int):
+            if key < 0:
+                key = self.keys[key]
+            ret_val = self.container[key]
+        elif isinstance(key, str):
+            if key not in self.container.keys():
+                self.container[key] = key
+                print('[FROM INNER-WORLD], [ADD STR-KEY], [TGT {}], [ADDING (KEY, VALUE): ({}, {})]'.format(type(self).__name__, key, 'TBD'))
+            ret_val = self.container[key]
+        else:
+            if key not in self.container.keys():
+                self.container[key] = key
+                print('[FROM INNER-WORLD], [ADD OBJ-KEY], [TGT {}], [ADDING (KEY, VALUE): ({}, {})]'.format(type(self).__name__, type(key).__name__, 'TBD'))
+            ret_val = self.container[key]
+        return ret_val
+
+    def __setitem__(self, key, val):
+        self.__refresh_keys()
+        if isinstance(key, slice):
+            start = key.start or 0
+            stop = key.stop or len(self.container)
+            step = key.step or 1
+            if start < 0:
+                start = self.keys[start]
+            if stop < 0:
+                stop = self.keys[stop]
+            for i in range(0, stop, step):
+                if i not in self.keys:
+                    self.container[i] = 0
+            for i in range(start, stop, step):
+                self.container[i] = val
+            return True
+        elif isinstance(key, int):
+            if key < 0:
+                key = self.keys[key]
+            for i in range(0, key):
+                if i not in self.keys:
+                    self.container[i] = 0
+            self.container[key] = val
+            return True
+        elif isinstance(key, str):
+            self.container[key] = val
+            return True
+        self.__refresh_keys()
+        return False
+
+    def __iter__(self):
+        return iter(self.container.values())
+
+    def __len__(self):
+        return len(self.keys)

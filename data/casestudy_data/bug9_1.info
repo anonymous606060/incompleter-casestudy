@@ -1,0 +1,157 @@
+Line 1224: formats_dict = {}
+
+
+Worked:
+
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'formats_dict' is not defined. Did you mean: 'format_id'?
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2395, in <module>
+    temp.test_youtube_format_selection()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2101, in test_youtube_format_selection
+    ydl.process_ie_result(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 640, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1073, in process_video_result
+    if format_id not in formats_dict:
+NameError: name 'formats_dict' is not defined. Did you mean: 'format_id'?
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:13<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- TypeError: argument of type 'TBD0' is not iterable
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2105, in <module>
+    temp.test_youtube_format_selection()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1843, in test_youtube_format_selection
+    ydl.process_ie_result(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 579, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 931, in process_video_result
+    if format_id not in formats_dict:
+TypeError: argument of type 'TBD0' is not iterable
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:42<?, ?it/s]
+
+ACTION TO APPLY: DefineIterableOrSubscriptable
+
+Snippet#: check -- Iter 2 -- AttributeError: 'TBD0' object has no attribute 'items'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2210, in <module>
+    temp.test_youtube_format_selection()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1948, in test_youtube_format_selection
+    ydl.process_ie_result(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 684, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1039, in process_video_result
+    for (format_id, ambiguous_formats) in formats_dict.items():
+AttributeError: 'TBD0' object has no attribute 'items'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:00<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 3 -- TypeError: 'TBD1' object is not iterable
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2218, in <module>
+    temp.test_youtube_format_selection()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1956, in test_youtube_format_selection
+    ydl.process_ie_result(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 692, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1047, in process_video_result
+    for (format_id, ambiguous_formats) in formats_dict.items():
+TypeError: 'TBD1' object is not iterable
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [05:12<?, ?it/s]
+
+ACTION TO APPLY: DefineIterableOrSubscriptable
+
+Snippet#: check -- Iter 4 -- youtube_dl.utils.ExtractorError: requested format not available
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2323, in <module>
+    temp.test_youtube_format_selection()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 2061, in test_youtube_format_selection
+    ydl.process_ie_result(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 797, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/snippet_check_tmp.py.orig", line 1184, in process_video_result
+    raise ExtractorError('requested format not available', expected=True)
+youtube_dl.utils.ExtractorError: requested format not available
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [06:52<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [06:52<00:00, 412.17s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+
+Lexecutor:
+04/12/2024 07:18:59 PM 92905: Predicting for name formats_dict: {'a': <lexecutor.ValueAbstraction.DummyObject object at 0x7f16d26d3c70>}
+Failed:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/bug9_1.py", line 5312, in <module>
+    _c_(97203, _a_(97202, _n_(97201, "temp", lambda: temp), "test_youtube_format_selection"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/bug9_1.py", line 4678, in test_youtube_format_selection
+    _c_(96240, _a_(96238, _n_(96237, "ydl", lambda: ydl), "process_ie_result"), _n_(96239, "info_dict", lambda: info_dict))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/bug9_1.py", line 1346, in process_ie_result
+    aux = _c_(91677, _a_(91674, _n_(91673, "self", lambda: self), "process_video_result"), _n_(91675, "ie_result", lambda: ie_result), download=_n_(91676, "download", lambda: download))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug9/youtube-dl/test/bug9_1.py", line 2312, in process_video_result
+    if _c_(92922, _n_(92920, "len", lambda: len), _n_(92921, "ambiguous_formats", lambda: ambiguous_formats)) > 1:
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+TypeError: object of type 'DummyObject' has no len()
+04/12/2024 07:19:11 PM Covered iids: 326
+04/12/2024 07:19:11 PM Total uses: 1568
+04/12/2024 07:19:11 PM Guided uses : 142/1568

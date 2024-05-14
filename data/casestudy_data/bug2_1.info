@@ -1,0 +1,109 @@
+Line 1773:             ms_info = ms_parent_info.copy()
+
+Worked:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'ms_info' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2882, in <module>
+    temp.test_parse_mpd_formats()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2850, in test_parse_mpd_formats
+    formats = self.ie._parse_mpd_formats(
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1546, in _parse_mpd_formats
+    period_ms_info = extract_multisegment_info(period, {
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1541, in extract_multisegment_info
+    return ms_info
+NameError: name 'ms_info' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:45<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- TypeError: 'TBD0' object does not support item assignment
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1936, in <module>
+    temp.test_parse_mpd_formats()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1922, in test_parse_mpd_formats
+    formats = self.ie._parse_mpd_formats(compat_etree_fromstring(f.read().encode('utf-8')), mpd_url=mpd_url)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1298, in _parse_mpd_formats
+    adaption_set_ms_info = extract_multisegment_info(adaptation_set, period_ms_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1280, in extract_multisegment_info
+    extract_common(segment_template)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1258, in extract_common
+    ms_info['start_number'] = int(start_number)
+TypeError: 'TBD0' object does not support item assignment
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:22<?, ?it/s]
+
+ACTION TO APPLY: DefineIterableOrSubscriptable
+
+Snippet#: check -- Iter 2 -- AssertionError: 7 != 6 : Expect a list of length 7, but got a list of length 6 for field None
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2041, in <module>
+    temp.test_parse_mpd_formats()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2029, in test_parse_mpd_formats
+    expect_value(self, formats, expected_formats, None)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/helper.py", line 137, in expect_value
+    self.assertEqual(
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 838, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 7 != 6 : Expect a list of length 7, but got a list of length 6 for field None
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:53<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [04:53<00:00, 293.50s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+
+Lexecutor:
+
+04/12/2024 07:08:23 PM 81343: Predicting for name ms_info: {'a': <lexecutor.ValueAbstraction.DummyObject object at 0x7f93fd8f3af0>}
+Worked:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/bug2_1.py", line 5378, in <module>
+    _c_(83746, _a_(83745, _n_(83744, "temp", lambda: temp), "test_parse_mpd_formats"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/bug2_1.py", line 5331, in test_parse_mpd_formats
+    _c_(83696, _n_(83692, "expect_value", lambda: expect_value), _n_(83693, "self", lambda: self), _n_(83694, "formats", lambda: formats), _n_(83695, "expected_formats", lambda: expected_formats), None)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/helper.py", line 137, in expect_value
+    self.assertEqual(
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 838, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 7 != 6 : Expect a list of length 7, but got a list of length 6 for field None
+04/12/2024 07:10:37 PM Covered iids: 559
+04/12/2024 07:10:37 PM Total uses: 109211
+04/12/2024 07:10:37 PM Guided uses : 20/109211

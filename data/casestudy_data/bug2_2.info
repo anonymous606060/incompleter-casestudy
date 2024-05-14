@@ -1,0 +1,82 @@
+Line 1764: namespace = self._search_regex(r'(?i)^{([^}]+)?}MPD$', mpd_doc.tag, 'namespace', default=None)
+
+Failed:
+
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'namespace' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2882, in <module>
+    temp.test_parse_mpd_formats()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 2850, in test_parse_mpd_formats
+    formats = self.ie._parse_mpd_formats(
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1544, in _parse_mpd_formats
+    for period in mpd_doc.findall(_add_ns('Period')):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1489, in _add_ns
+    return self._xpath_ns(path, namespace)
+NameError: name 'namespace' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:45<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- youtube_dl.utils.ExtractorError: No video formats found; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1936, in <module>
+    temp.test_parse_mpd_formats()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 1923, in test_parse_mpd_formats
+    self.ie._sort_formats(formats)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/snippet_check_tmp.py.orig", line 835, in _sort_formats
+    raise ExtractorError('No video formats found')
+youtube_dl.utils.ExtractorError: No video formats found; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:15<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [03:15<00:00, 195.69s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$
+
+Lexecutor:
+04/12/2024 07:13:50 PM 86936: Predicting for name namespace: None
+
+Worked:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/bug2_2.py", line 5378, in <module>
+    _c_(89509, _a_(89508, _n_(89507, "temp", lambda: temp), "test_parse_mpd_formats"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/bug2_2.py", line 5329, in test_parse_mpd_formats
+    _c_(89453, _a_(89451, _a_(89450, _n_(89449, "self", lambda: self), "ie"), "_sort_formats"), _n_(89452, "formats", lambda: formats))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug2/youtube-dl/test/bug2_2.py", line 1796, in _sort_formats
+    raise _c_(85371, _n_(85370, "ExtractorError", lambda: ExtractorError), 'No video formats found')
+youtube_dl.utils.ExtractorError: No video formats found; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+04/12/2024 07:13:51 PM Covered iids: 113
+04/12/2024 07:13:51 PM Total uses: 113
+04/12/2024 07:13:51 PM Guided uses : 1/113

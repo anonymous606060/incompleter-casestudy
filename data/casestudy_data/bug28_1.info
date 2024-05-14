@@ -1,0 +1,227 @@
+numstr = mobj.group(1)
+
+
+Failed:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'numstr' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 2591, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 2123, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 317, in unescapeHTML
+    return re.sub(
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 318, in <lambda>
+    r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 307, in _htmlentity_transform
+    if numstr.startswith('x'):
+NameError: name 'numstr' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:32<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- AttributeError: 'TBD0' object has no attribute 'startswith'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1962, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1597, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 300, in unescapeHTML
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 300, in <lambda>
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 289, in _htmlentity_transform
+    if numstr.startswith('x'):
+AttributeError: 'TBD0' object has no attribute 'startswith'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:47<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 2 -- TypeError: int() can't convert non-string with explicit base
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1970, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1605, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 308, in unescapeHTML
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 308, in <lambda>
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 301, in _htmlentity_transform
+    return compat_chr(int(numstr, base))
+TypeError: int() can't convert non-string with explicit base
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:51<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [03:51<00:00, 231.94s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'numstr' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 2591, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 2123, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 317, in unescapeHTML
+    return re.sub(
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 318, in <lambda>
+    r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 307, in _htmlentity_transform
+    if numstr.startswith('x'):
+NameError: name 'numstr' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:32<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- AttributeError: 'TBD0' object has no attribute 'startswith'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1962, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1597, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 300, in unescapeHTML
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 300, in <lambda>
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 289, in _htmlentity_transform
+    if numstr.startswith('x'):
+AttributeError: 'TBD0' object has no attribute 'startswith'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:47<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 2 -- TypeError: int() can't convert non-string with explicit base
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1970, in <module>
+    temp.test_unescape_html()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 1605, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 308, in unescapeHTML
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 308, in <lambda>
+    return re.sub('&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/snippet_check_tmp.py.orig", line 301, in _htmlentity_transform
+    return compat_chr(int(numstr, base))
+TypeError: int() can't convert non-string with explicit base
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:51<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [03:51<00:00, 231.94s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+Lexecutor:
+
+04/12/2024 08:03:35 PM 72467: Predicting for name numstr: a
+Failed:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/bug28_1.py", line 5609, in <module>
+    _c_(77981, _a_(77980, _n_(77979, "temp", lambda: temp), "test_unescape_html"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/bug28_1.py", line 4754, in test_unescape_html
+    _c_(76378, _a_(76375, _n_(76374, "self", lambda: self), "assertEqual"), _c_(76377, _n_(76376, "unescapeHTML", lambda: unescapeHTML), '&#2013266066;'), '&#2013266066;')
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/bug28_1.py", line 901, in unescapeHTML
+    aux = _c_(72500, _a_(72493, _n_(72492, "re", lambda: re), "sub"), r'&([^;]+);', lambda m: _c_(72498, _n_(72494, "_htmlentity_transform", lambda: _htmlentity_transform), _c_(72497, _a_(72496, _n_(72495, "m", lambda: m), "group"), 1)), _n_(72499, "s", lambda: s))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/re.py", line 209, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/bug28_1.py", line 901, in <lambda>
+    aux = _c_(72500, _a_(72493, _n_(72492, "re", lambda: re), "sub"), r'&([^;]+);', lambda m: _c_(72498, _n_(72494, "_htmlentity_transform", lambda: _htmlentity_transform), _c_(72497, _a_(72496, _n_(72495, "m", lambda: m), "group"), 1)), _n_(72499, "s", lambda: s))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug28/youtube-dl/test/bug28_1.py", line 880, in _htmlentity_transform
+    aux = _c_(72478, _n_(72473, "compat_chr", lambda: compat_chr), _c_(72477, _n_(72474, "int", lambda: int), _n_(72475, "numstr", lambda: numstr), _n_(72476, "base", lambda: base)))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+ValueError: invalid literal for int() with base 10: 'a'
+04/12/2024 08:03:35 PM Covered iids: 118
+04/12/2024 08:03:35 PM Total uses: 118
+04/12/2024 08:03:35 PM Guided uses : 2/118

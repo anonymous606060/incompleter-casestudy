@@ -1,0 +1,60 @@
+Failed:
+DefineFunc	1
+DefineString	1
+Total 2
+
+DefineVar 1
+Total 1
+
+DefineVar 1
+DefineFunc 1
+DefineKey 23 (looped for all iterations)
+Total 25
+
+DefineVar 1
+Total 1
+
+DefineFunc 1
+DefineString 1
+Total 2
+
+DefineVar 1
+DefineFunc 2
+Total 3
+
+DefineVar 1
+DefineFunc 1
+Total 2
+
+Working:
+
+DefineVar	1
+DefineIterableOrSubscriptable 	1
+Total 2
+
+DefineVar 1
+Total 1
+
+DefineVar 1
+DefineIterableOrSubscriptable 2
+DefineFunc 1
+Total 4
+
+DefineFunc 1
+DefineIterableOrSubscriptable 1
+Total 2
+
+DefineVar 1
+Total 1
+
+DefineVar 1
+DefineIterableOrSubscriptable 1
+Total 2
+
+DefineVar 1
+Total 1
+
+DefineVar 1
+DefineFunc 1
+DefineIterableOrSubscriptable 1
+Total 3

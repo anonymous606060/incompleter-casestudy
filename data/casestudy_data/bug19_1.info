@@ -1,0 +1,85 @@
+autonumber_size = self.params.get('autonumber_size')
+            if autonumber_size is None:
+                autonumber_size = 5
+
+
+Same assertion different content:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'autonumber_size' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2587, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2396, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2395, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 581, in prepare_filename
+    'autonumber': autonumber_size,
+NameError: name 'autonumber_size' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:42<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- AssertionError: 'Hello /home/anonymous/.pyenv/libexec:/home/anonymous/[1354 chars]/bin' != 'Hello $PATH'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2247, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2076, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Hello /home/anonymous/.pyenv/libexec:/home/anonymous/[1354 chars]/bin' != 'Hello $PATH'
+Diff is 1423 characters long. Set self.maxDiff to None to see it.
+
+
+Lexecutor:
+04/12/2024 07:31:25 PM 935: Predicting for name autonumber_size: None
+Same assertion different content:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_1.py", line 5732, in <module>
+    _c_(7145, _a_(7144, _n_(7143, "temp", lambda: temp), "test_prepare_filename"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_1.py", line 5306, in test_prepare_filename
+    _c_(6587, _a_(6584, _n_(6583, "self", lambda: self), "assertEqual"), _c_(6586, _n_(6585, "fname", lambda: fname), 'Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Hello /home/anonymous/.pyenv/libexec:/home/anonymous/[1354 chars]/bin' != 'Hello $PATH'
+Diff is 1423 characters long. Set self.maxDiff to None to see it.
+04/12/2024 07:31:41 PM Covered iids: 315
+04/12/2024 07:31:41 PM Total uses: 14368
+04/12/2024 07:31:41 PM Guided uses : 1/14368

@@ -1,0 +1,167 @@
+mobj = re.search(FIELD_SIZE_COMPAT_RE, outtmpl)
+
+Failed:
+
+ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'mobj' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2589, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2398, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2397, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 587, in prepare_filename
+    if mobj:
+NameError: name 'mobj' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:39<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- AttributeError: 'TBD0' object has no attribute 'group'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2249, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2078, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2077, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 507, in prepare_filename
+    outtmpl = re.sub(FIELD_SIZE_COMPAT_RE, '%%(\\1)0%dd' % field_size_compat_map[mobj.group('field')], outtmpl)
+AttributeError: 'TBD0' object has no attribute 'group'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:18<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 2 -- KeyError: <__main__.TBD1 object at 0x7f3a3e870940>
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2257, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2086, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2085, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 515, in prepare_filename
+    outtmpl = re.sub(FIELD_SIZE_COMPAT_RE, '%%(\\1)0%dd' % field_size_compat_map[mobj.group('field')], outtmpl)
+KeyError: <__main__.TBD1 object at 0x7f3a3e870940>
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:56<?, ?it/s]
+
+ACTION TO APPLY: DefineKey
+
+Snippet#: check -- Iter 3 -- KeyError: <__main__.TBD1 object at 0x7f8eb0db4970>
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2262, in <module>
+    temp.test_prepare_filename()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2091, in test_prepare_filename
+    self.assertEqual(fname('Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 2090, in fname
+    return ydl.prepare_filename(info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/snippet_check_tmp.py.orig", line 520, in prepare_filename
+    outtmpl = re.sub(FIELD_SIZE_COMPAT_RE, '%%(\\1)0%dd' % field_size_compat_map[mobj.group('field')], outtmpl)
+KeyError: <__main__.TBD1 object at 0x7f8eb0db4970>
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [06:32<?, ?it/s]
+
+ACTION TO APPLY: DefineKey
+^CTraceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/c/Users/anonymous/git/incompleter/src/main/main.py", line 49, in <module>
+Process Process-5:
+    executability_report, action_iteration_report, action_progress_report, action_sequence_length, coverage_report, unresolved_report, deductions_tally = mox.moxecute()
+  File "/mnt/c/Users/anonymous/git/incompleter/src/main/utils/moxecutor.py", line 47, in moxecute
+    out, err, stmt_cov, br_cov = self.snippet.compute_timed_latest_coverage()
+  File "/mnt/c/Users/anonymous/git/incompleter/src/main/utils/snippet.py", line 340, in compute_timed_latest_coverage
+    proc.join(timeout=Snippet.TIMEOUT)
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/usr/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/mnt/c/Users/anonymous/git/incompleter/src/main/utils/snippet.py", line 380, in compute_latest_coverage
+    proc.communicate()
+  File "/usr/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/lib/python3.10/subprocess.py", line 2021, in _communicate
+    ready = selector.select(timeout)
+  File "/usr/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+Moxecution (mock+execution) Progress:   0%|
+
+
+Lexecutor:
+04/12/2024 07:38:18 PM 8093: Predicting for name mobj: <lexecutor.ValueAbstraction.DummyObject object at 0x7fbc8bb6e710>
+04/12/2024 07:38:18 PM 8099: Predicting for attribute group: <class 'lexecutor.ValueAbstraction.DummyObject'>
+04/12/2024 07:38:19 PM 8100: Predicting for call: <lexecutor.ValueAbstraction.DummyObject object at 0x7fbc8bb6ff40>
+
+Failed:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_2.py", line 5735, in <module>
+    _c_(14294, _a_(14293, _n_(14292, "temp", lambda: temp), "test_prepare_filename"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_2.py", line 5309, in test_prepare_filename
+    _c_(13736, _a_(13733, _n_(13732, "self", lambda: self), "assertEqual"), _c_(13735, _n_(13734, "fname", lambda: fname), 'Hello %(title1)s'), 'Hello $PATH')
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_2.py", line 5287, in fname
+    aux = _c_(13729, _a_(13727, _n_(13726, "ydl", lambda: ydl), "prepare_filename"), _n_(13728, "info", lambda: info))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug19/youtube-dl/test/bug19_2.py", line 1174, in prepare_filename
+    r'%%(\1)0%dd' % _n_(8097, "field_size_compat_map", lambda: field_size_compat_map)[_c_(8100, _a_(8099, _n_(8098, "mobj", lambda: mobj), "group"), 'field')],
+KeyError: <lexecutor.ValueAbstraction.DummyObject object at 0x7fbc8bb6ff40>
+04/12/2024 07:38:21 PM Covered iids: 298
+04/12/2024 07:38:21 PM Total uses: 13985
+04/12/2024 07:38:21 PM Guided uses : 3/13985

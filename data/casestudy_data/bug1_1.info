@@ -1,0 +1,106 @@
+            quote = m.group('quote')
+
+Failed:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'quote' is not defined. Did you mean: 'quit'?
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 4272, in <module>
+    temp.test_match_str()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 4040, in test_match_str
+    self.assertFalse(match_str('y=a212', {'y': 'foobar42'}))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1981, in match_str
+    return all(
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1982, in <genexpr>
+    _match_one(filter_part, dct) for filter_part in filter_str.split('&'))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1949, in _match_one
+    if quote is not None:
+NameError: name 'quote' is not defined. Did you mean: 'quit'?
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:03<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+Snippet#: check -- Iter 1 -- TypeError: replace() argument 2 must be str, not function
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 3082, in <module>
+    temp.test_match_str()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 2964, in test_match_str
+    self.assertFalse(match_str('y=a212', {'y': 'foobar42'}))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1762, in match_str
+    return all((_match_one(filter_part, dct) for filter_part in filter_str.split('&')))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1762, in <genexpr>
+    return all((_match_one(filter_part, dct) for filter_part in filter_str.split('&')))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1738, in _match_one
+    comparison_value = comparison_value.replace('\\%s' % quote, quote)
+TypeError: replace() argument 2 must be str, not function
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:56<?, ?it/s]
+
+ACTION TO APPLY: DefineString
+
+Snippet#: check -- Iter 2 -- TypeError: replace() argument 2 must be str, not function
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 3105, in <module>
+    temp.test_match_str()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 2987, in test_match_str
+    self.assertFalse(match_str('y=a212', {'y': 'foobar42'}))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1785, in match_str
+    return all((_match_one(filter_part, dct) for filter_part in filter_str.split('&')))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1785, in <genexpr>
+    return all((_match_one(filter_part, dct) for filter_part in filter_str.split('&')))
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/snippet_check_tmp.py.orig", line 1761, in _match_one
+    comparison_value = comparison_value.replace('\\%s' % quote, quote)
+TypeError: replace() argument 2 must be str, not function
+
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [05:43<00:00, 343.74s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$
+
+
+
+
+Lexecutor:
+04/12/2024 06:59:44 PM 26169: Predicting for name quote: None
+Works:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/bug1_1.py", line 8893, in <module>
+    _c_(31583, _a_(31582, _n_(31581, "temp", lambda: temp), "test_match_str"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug1/youtube-dl/test/bug1_1.py", line 8551, in test_match_str
+    _c_(31138, _a_(31135, _n_(31134, "self", lambda: self), "assertFalse"), _c_(31137, _n_(31136, "match_str", lambda: match_str), 'is_live', {'is_live': False}))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 681, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false
+04/12/2024 06:59:59 PM Covered iids: 364
+04/12/2024 06:59:59 PM Total uses: 2307
+04/12/2024 06:59:59 PM Guided uses : 4/2307

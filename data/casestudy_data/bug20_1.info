@@ -1,0 +1,101 @@
+    retlist = []
+
+Worked:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'retlist' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 4078, in <module>
+    temp.test_get_element_by_attribute()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 4061, in test_get_element_by_attribute
+    self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 296, in get_element_by_attribute
+    retval = get_elements_by_attribute(attribute, value, html, escape_value)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 319, in get_elements_by_attribute
+    return retlist
+NameError: name 'retlist' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:17<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- TypeError: 'TBD0' object is not subscriptable
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 3000, in <module>
+    temp.test_get_element_by_attribute()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 2985, in test_get_element_by_attribute
+    self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 196, in get_element_by_attribute
+    return retval[0] if retval else None
+TypeError: 'TBD0' object is not subscriptable
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:21<?, ?it/s]
+
+ACTION TO APPLY: DefineIterableOrSubscriptable
+
+Snippet#: check -- Iter 2 -- AssertionError: None != 'foo'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 3105, in <module>
+    temp.test_get_element_by_attribute()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/snippet_check_tmp.py.orig", line 3090, in test_get_element_by_attribute
+    self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 838, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: None != 'foo'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [06:16<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [06:16<00:00, 376.96s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$
+
+
+
+Lexecutor:
+04/12/2024 07:48:29 PM 32120: Predicting for name retlist: [<lexecutor.ValueAbstraction.DummyObject object at 0x7fcb32fb3040>]
+Same assertion different content:
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/bug20_1.py", line 8591, in <module>
+    _c_(41384, _a_(41383, _n_(41382, "temp", lambda: temp), "test_get_element_by_attribute"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug20/youtube-dl/test/bug20_1.py", line 8551, in test_get_element_by_attribute
+    _c_(41331, _a_(41327, _n_(41326, "self", lambda: self), "assertEqual"), _c_(41330, _n_(41328, "get_element_by_attribute", lambda: get_element_by_attribute), 'itemprop', 'author', _n_(41329, "html", lambda: html)), 'foo')
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 838, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: <lexecutor.ValueAbstraction.DummyObject object at 0x7fcb32fb3040> != 'foo'
+04/12/2024 07:48:30 PM Covered iids: 143
+04/12/2024 07:48:30 PM Total uses: 143
+04/12/2024 07:48:30 PM Guided uses : 1/143

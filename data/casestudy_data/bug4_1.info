@@ -1,0 +1,180 @@
+Line 265: local_vars = dict(zip(argnames, args))
+
+
+Worked: 
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'local_vars' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 309, in <module>
+    temp.test_call()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 305, in test_call
+    self.assertEqual(jsi.call_function('z'), 5)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 217, in call_function
+    return f(args)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 221, in resf
+    res, abort = self.interpret_statement(stmt, local_vars)
+NameError: name 'local_vars' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [02:00<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- youtube_dl.utils.ExtractorError: Unsupported JS expression 'x()'; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 266, in <module>
+    temp.test_call()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 262, in test_call
+    self.assertEqual(jsi.call_function('z'), 5)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 182, in call_function
+    return f(args)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 188, in resf
+    (res, abort) = self.interpret_statement(stmt, local_vars)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 45, in interpret_statement
+    v = self.interpret_expression(expr, local_vars, allow_recursion)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 160, in interpret_expression
+    return self._functions[fname](argvals)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 188, in resf
+    (res, abort) = self.interpret_statement(stmt, local_vars)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 45, in interpret_statement
+    v = self.interpret_expression(expr, local_vars, allow_recursion)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 147, in interpret_expression
+    (x, abort) = self.interpret_statement(m.group('x'), local_vars, allow_recursion - 1)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 45, in interpret_statement
+    v = self.interpret_expression(expr, local_vars, allow_recursion)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/snippet_check_tmp.py.orig", line 161, in interpret_expression
+    raise ExtractorError('Unsupported JS expression %r' % expr)
+youtube_dl.utils.ExtractorError: Unsupported JS expression 'x()'; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:01<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [04:01<00:00, 241.20s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+anonymous@anonymous-Lap:~/anonymous/git/incompleter/src$
+
+
+Lexecutor:
+
+04/12/2024 07:16:18 PM 90189: Predicting for name local_vars: {'a': <lexecutor.ValueAbstraction.DummyObject object at 0x7f14828bf970>}
+Worked:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 708, in <module>
+    _c_(90440, _a_(90439, _n_(90438, "temp", lambda: temp), "test_call"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 697, in test_call
+    _c_(90426, _a_(90422, _n_(90421, "self", lambda: self), "assertEqual"), _c_(90425, _a_(90424, _n_(90423, "jsi", lambda: jsi), "call_function"), 'z'), 5)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 501, in call_function
+    aux = _c_(90180, _n_(90178, "f", lambda: f), _n_(90179, "args", lambda: args))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 515, in resf
+    res, abort = _c_(90190, _a_(90187, _n_(90186, "self", lambda: self), "interpret_statement"), _n_(90188, "stmt", lambda: stmt), _n_(90189, "local_vars", lambda: local_vars))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 137, in interpret_statement
+    v = _c_(89636, _a_(89632, _n_(89631, "self", lambda: self), "interpret_expression"), _n_(89633, "expr", lambda: expr), _n_(89634, "local_vars", lambda: local_vars), _n_(89635, "allow_recursion", lambda: allow_recursion))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 438, in interpret_expression
+    aux = _c_(90083, _a_(90080, _n_(90079, "self", lambda: self), "_functions")[_n_(90081, "fname", lambda: fname)], _n_(90082, "argvals", lambda: argvals))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 515, in resf
+    res, abort = _c_(90190, _a_(90187, _n_(90186, "self", lambda: self), "interpret_statement"), _n_(90188, "stmt", lambda: stmt), _n_(90189, "local_vars", lambda: local_vars))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 137, in interpret_statement
+    v = _c_(89636, _a_(89632, _n_(89631, "self", lambda: self), "interpret_expression"), _n_(89633, "expr", lambda: expr), _n_(89634, "local_vars", lambda: local_vars), _n_(89635, "allow_recursion", lambda: allow_recursion))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 404, in interpret_expression
+    x, abort = _c_(90009, _a_(90003, _n_(90002, "self", lambda: self), "interpret_statement"), _c_(90006, _a_(90005, _n_(90004, "m", lambda: m), "group"), 'x'), _n_(90007, "local_vars", lambda: local_vars), _n_(90008, "allow_recursion", lambda: allow_recursion) - 1)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 137, in interpret_statement
+    v = _c_(89636, _a_(89632, _n_(89631, "self", lambda: self), "interpret_expression"), _n_(89633, "expr", lambda: expr), _n_(89634, "local_vars", lambda: local_vars), _n_(89635, "allow_recursion", lambda: allow_recursion))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug4/youtube-dl/test/bug4_1.py", line 442, in interpret_expression
+    raise _c_(90088, _n_(90086, "ExtractorError", lambda: ExtractorError), 'Unsupported JS expression %r' % _n_(90087, "expr", lambda: expr))
+youtube_dl.utils.ExtractorError: Unsupported JS expression 'x()'; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.
+04/12/2024 07:16:34 PM Covered iids: 243
+04/12/2024 07:16:34 PM Total uses: 976
+04/12/2024 07:16:34 PM Guided uses : 2/976

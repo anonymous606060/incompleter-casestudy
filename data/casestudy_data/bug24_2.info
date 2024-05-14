@@ -1,0 +1,150 @@
+            full_format_info = info_dict.copy()
+
+Failed:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'full_format_info' is not defined
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2666, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2581, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2574, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 676, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 1203, in process_video_result
+    full_format_info.update(format)
+NameError: name 'full_format_info' is not defined
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:41<?, ?it/s]
+
+ACTION TO APPLY: DefineVar
+
+Snippet#: check -- Iter 1 -- AttributeError: 'TBD0' object has no attribute 'update'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2334, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2258, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2250, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 605, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 1041, in process_video_result
+    full_format_info.update(format)
+AttributeError: 'TBD0' object has no attribute 'update'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:13<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 2 -- AttributeError: 'TBD0' object has no attribute 'get'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2342, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2266, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2258, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 613, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 1050, in process_video_result
+    format['http_headers'] = self._calc_headers(full_format_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 948, in _calc_headers
+    add_headers = info_dict.get('http_headers')
+AttributeError: 'TBD0' object has no attribute 'get'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:39<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+
+HERE
+
+
+
+Snippet#: check -- Iter 3 -- TypeError: TBD0.get() missing 1 required positional argument: 'arg1'
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2350, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2274, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 2266, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 621, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 1058, in process_video_result
+    format['http_headers'] = self._calc_headers(full_format_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/snippet_check_tmp.py.orig", line 956, in _calc_headers
+    add_headers = info_dict.get('http_headers')
+TypeError: TBD0.get() missing 1 required positional argument: 'arg1'
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [06:08<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [06:08<00:00, 368.37s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+Lexecutor:
+Worked
+04/12/2024 07:57:07 PM 66989: Predicting for name full_format_info: {'a': <lexecutor.ValueAbstraction.DummyObject object at 0x7f41c9220460>}
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/bug24_2.py", line 5922, in <module>
+    _c_(71720, _a_(71719, _n_(71718, "temp", lambda: temp), "test_match_filter"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug24/youtube-dl/test/bug24_2.py", line 5764, in test_match_filter
+    _c_(71543, _a_(71541, _n_(71540, "self", lambda: self), "assertEqual"), _n_(71542, "res", lambda: res), ['1'])
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1051, in assertListEqual
+    self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+  File "/usr/lib/python3.10/unittest/case.py", line 1033, in assertSequenceEqual
+    self.fail(msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: Lists differ: [] != ['1']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'1'
+
+- []
++ ['1']
+04/12/2024 07:59:25 PM Covered iids: 945
+04/12/2024 07:59:25 PM Total uses: 10471
+04/12/2024 07:59:25 PM Guided uses : 24/10471

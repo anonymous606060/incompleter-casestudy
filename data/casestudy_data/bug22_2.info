@@ -1,0 +1,143 @@
+match_filter = self.params.get('match_filter')
+
+
+
+Failed:
+
+$ python3 -m main.main /mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl -s  test/snippet_check.py.orig -c --bugs
+/mnt/c/Users/anonymous/git/incompleter
+
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [00:00<?, ?it/s]/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check.py.orig
+
+Snippet#: check
+
+
+Snippet#: check -- Iter 0 -- NameError: name 'match_filter' is not defined. Did you mean: 'match_filter_func'?
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2671, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2589, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2581, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 695, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1260, in process_video_result
+    self.process_info(new_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2549, in process_info
+    super(YDL, self).process_info(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1320, in process_info
+    reason = self._match_entry(info_dict, incomplete=False)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2551, in _match_entry
+    res = super(FilterYDL, self)._match_entry(info_dict, incomplete)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 613, in _match_entry
+    if match_filter is not None:
+NameError: name 'match_filter' is not defined. Did you mean: 'match_filter_func'?
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [01:31<?, ?it/s]
+
+ACTION TO APPLY: DefineFunc
+
+Snippet#: check -- Iter 1 -- TypeError: can only concatenate str (not "TBD0") to str
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2338, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2265, in test_match_filter
+    res = get_videos(f)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2256, in get_videos
+    ydl.process_ie_result(v, download=True)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 620, in process_ie_result
+    return self.process_video_result(ie_result, download=download)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1087, in process_video_result
+    self.process_info(new_info)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2242, in process_info
+    super(YDL, self).process_info(info_dict)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 1146, in process_info
+    self.to_screen('[download] ' + reason)
+TypeError: can only concatenate str (not "TBD0") to str
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [03:02<?, ?it/s]
+
+ACTION TO APPLY: DefineString
+
+Snippet#: check -- Iter 2 -- AssertionError: Lists differ: [] != ['1']
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2356, in <module>
+    temp.test_match_filter()
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/snippet_check_tmp.py.orig", line 2284, in test_match_filter
+    self.assertEqual(res, ['1'])
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1051, in assertListEqual
+    self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+  File "/usr/lib/python3.10/unittest/case.py", line 1033, in assertSequenceEqual
+    self.fail(msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: Lists differ: [] != ['1']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'1'
+
+- []
++ ['1']
+
+Moxecution (mock+execution) Progress:   0%|                                                 | 0/1 [04:27<?, ?it/s]
+
+ACTION TO APPLY: NoneType
+Moxecution (mock+execution) Progress: 100%|████████████████████████████████████████| 1/1 [04:27<00:00, 267.80s/it]
+[Errno 2] No such file or directory: '/mnt/c/Users/anonymous/git/incompleter/data/new_all/logs/incompleter/youtube-dl/failure.pkl'
+
+Aggregated Deductions Tally:
+
+
+
+Lexecutor:
+04/12/2024 08:33:56 PM 1107: Predicting for name match_filter: None
+Failed:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_2.py", line 5961, in <module>
+    _c_(7584, _a_(7583, _n_(7582, "temp", lambda: temp), "test_match_filter"))
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/mnt/c/Users/anonymous/git/BugsInPy/framework/bin/youtube-dl-bugs/bug22/youtube-dl/test/bug22_2.py", line 5775, in test_match_filter
+    _c_(7359, _a_(7357, _n_(7356, "self", lambda: self), "assertEqual"), _n_(7358, "res", lambda: res), ['1'])
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 132, in _c_
+    return mode_branch(iid, perform_fct, record_fct, predict_fct, kind=kind)
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 219, in mode_branch
+    raise e
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 201, in mode_branch
+    v = perform_fct()
+  File "/mnt/c/Users/anonymous/git/lexecutor/LExecutor/src/lexecutor/Runtime.py", line 113, in perform_fct
+    return fct(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 1051, in assertListEqual
+    self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+  File "/usr/lib/python3.10/unittest/case.py", line 1033, in assertSequenceEqual
+    self.fail(msg)
+  File "/usr/lib/python3.10/unittest/case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: Lists differ: ['1', '2'] != ['1']
+
+First list contains 1 additional elements.
+First extra element 1:
+'2'
+
+- ['1', '2']
++ ['1']
+04/12/2024 08:34:11 PM Covered iids: 883
+04/12/2024 08:34:11 PM Total uses: 2357
+04/12/2024 08:34:11 PM Guided uses : 2/2357
